@@ -5,14 +5,13 @@ import Button from "../../components/Button/Button";
 import Space from "../../components/Space/Space";
 import LoginWrapper from "../login/components/LoginWrapper";
 import { register } from "./register.service";
-import { useNavigate } from "react-router-dom";
+import { logout } from "../../service/logout";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [reapetPassword, setReapetPassword] = useState("");
   const [checked, setChecked] = useState(false);
-  const navigate = useNavigate();
 
   async function handleRegister() {
     if (password === reapetPassword && password !== "") {
@@ -21,7 +20,7 @@ function Register() {
 
       if (res && res.message) {
         if (res.message === "registerd") {
-          navigate("/login");
+          logout();
         } else {
           alert(res.message);
         }

@@ -2,5 +2,6 @@
     background: var(--primary-color);
     border-radius: 10px;
     text-align: center;
-    color: var(--secendory-color)
+    color: var(--secendory-color);
+    cursor: pointer;
 }

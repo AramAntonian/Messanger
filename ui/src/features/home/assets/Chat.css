@@ -1,0 +1,66 @@
+.chat-cont {
+  width: 50%;
+  border-right: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px
+}
+
+.send-message-cont {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 0px 10px 0px 10px;
+  box-sizing: border-box;
+}
+
+.send-message-send {
+  width: 30px;
+}
+
+.chat-messages-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+
+}
+
+.message-cont-me,
+.message-cont-other {
+  border-radius: var(--border-radius);
+  border: 1px solid black;
+  width: fit-content;
+  max-width: 30%;
+  padding: 5px 10px;
+  text-wrap: wrap;
+}
+
+.message-cont-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-wrap: wrap;
+}
+
+.message-cont-me {
+  background: var(--primary-color);
+  color: var(--secendory-color);
+  align-self: flex-end;
+}
+
+.message-cont-other {
+  background: var(--secendory-color);
+  color: var(--primary-color);
+  align-self: flex-start;
+}
+
+.no-messages-yet-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+}

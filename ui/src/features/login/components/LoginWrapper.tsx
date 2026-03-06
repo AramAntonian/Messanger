@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import "./LoginWrapper.css";
+import "../assets/LoginWrapper.css";
 import Background from "../../../components/Background/Background";
 
 interface LoginWrapperParams {

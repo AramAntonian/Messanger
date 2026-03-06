@@ -1,0 +1,21 @@
+.chat-participants-cont {
+  width: 20%;
+}
+
+.chat-participants {
+  color: var(--secendory-color);
+  text-align: center;
+}
+
+.chat-user-cont {
+  background: var(--primary-color);
+  color: var(--secendory-color);
+  border-radius: var(--border-radius);
+  padding: 0 5px
+}
+
+.chat-users {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

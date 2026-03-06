@@ -1,10 +1,13 @@
 import Background from "../../components/Background/Background";
+import Header from "../../components/Header/Header";
+import Messenger from "./components/Messenger";
 
 function Home() {
   return (
     <>
       <Background />
-      <div>hello from home</div>
+      <Header />
+      <Messenger />
     </>
   );
 }

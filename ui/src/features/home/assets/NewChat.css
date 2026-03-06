@@ -1,0 +1,14 @@
+.new-chat-cont {
+    height: 5%;
+    border-bottom: 1px solid black;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: var(--primary-color);
+    justify-content: center;
+    cursor: pointer;
+}
+
+.new-chat-cont img {
+    width: 30px;
+}

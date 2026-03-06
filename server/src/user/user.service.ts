@@ -1,26 +1,50 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserDto } from './dto/user.dto';
 import bcrypt from 'bcrypt';
+import { CreatUserDto } from './dto/createUser.dto';
+import { UserDto } from './dto/user.dto';
 
 @Injectable()
 export class UserService {
   constructor(@InjectRepository(User) private userRepo: Repository<User>) {}
 
-  async findOne(username: string) {
-    return await this.userRepo.findOne({ where: { username: username } });
+  async findOne(
+    user: string | number,
+    password?: string,
+    rels: string[] = [],
+  ): Promise<UserDto | null> {
+    const target = await this.userRepo.findOne({
+      where: typeof user === 'string' ? { username: user } : { id: user },
+      relations: rels,
+    });
+    if(!target){
+      return null
+    }
+    if (password) {
+      const isSame = await this.passwordCompare(password, target.password);
+      if (isSame) {
+        return target;
+      } else {
+        throw new HttpException('invalid password', HttpStatus.BAD_REQUEST);
+      }
+    }
+
+    return target;
   }
 
-  async create(user: UserDto) {
-    const newUser: UserDto = { ...user };
-    const isExist = await this.findOne(newUser.username);
-    if (isExist?.username) {
+  async create(user: CreatUserDto) {
+    const newUser = { ...user };
+    const isExist = await this.findOne(newUser.username, '', [
+      'chats',
+      'messages',
+    ]);
+    if (isExist?.id) {
       return false;
     }
 
-    return this.userRepo.save(newUser);
+    return await this.userRepo.save(newUser);
   }
 
   async getAll() {

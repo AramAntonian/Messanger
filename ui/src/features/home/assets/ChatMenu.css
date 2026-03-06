@@ -1,0 +1,14 @@
+.chatMenu-cont-empty, .chatMenu-cont-full {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: calc(100% - 1px);
+  border-right: 1px solid black;
+  overflow-y: auto;
+}
+
+
+.chatMenu-cont-empty {
+  align-items: center;
+  justify-content: center;
+}

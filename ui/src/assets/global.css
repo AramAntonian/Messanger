@@ -1,10 +1,11 @@
 :root {
-  --primary-color: #003D0D;
-  --secendory-color: white;
+  --primary-color:#6366F1 ;
+  --secendory-color: #ECFEFF;
   --default-fontSize: 18px;
   --small-fontSize: 14px;
   --medium-fontSize: 24px;
   --large-fontSize: 32px;
+  --border-radius: 15px
 }
 
 *{

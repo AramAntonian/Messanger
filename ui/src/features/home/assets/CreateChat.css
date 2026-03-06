@@ -1,0 +1,47 @@
+.add-text {
+  color: var(--primary-color);
+}
+
+.add-icon-button {
+  width: 100px;
+  color: blue;
+  cursor: pointer;
+}
+
+.add-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.create-chat-modal-cont{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.create-chat-modal-user-add-cont {
+  display: flex;
+  align-items: center;
+}
+
+.create-chat-modal-add-username-cont {
+  display: flex;
+  gap: 3px;
+  background: var(--primary-color);
+  color: var(--secendory-color);
+  padding: 5px;
+  border-radius: var(--border-radius);
+}
+
+.create-chat-modal-add-username-name .create-chat-modal-add-username-button {
+  font-size: var(--small-fontSize);
+}
+
+.create-chat-modal-add-username-button  {
+  cursor: pointer;
+  color: red
+}

@@ -6,7 +6,7 @@ interface InputParams {
   placeholder?: string;
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
-  size?: "large" | "small" | "medium";
+  size?: "large" | "small" | "medium" | "full";
 }
 
 function Input({ type, value, setValue, size, placeholder }: InputParams) {
@@ -25,7 +25,10 @@ function Input({ type, value, setValue, size, placeholder }: InputParams) {
       result.width = "250px";
       result.height = "30px";
     }
-
+    if (size === "full") {
+      result.width = "100%";
+      result.height = "22px";
+    }
     return result;
   }, [size]);
 
@@ -37,7 +40,7 @@ function Input({ type, value, setValue, size, placeholder }: InputParams) {
         onChange={handleChange}
         className="input-input"
         style={defineStyle}
-        placeholder={placeholder || ''}
+        placeholder={placeholder || ""}
       />
     </>
   );

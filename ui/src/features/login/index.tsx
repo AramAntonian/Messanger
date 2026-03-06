@@ -5,13 +5,12 @@ import LoginWrapper from "./components/LoginWrapper";
 import Button from "../../components/Button/Button";
 import Space from "../../components/Space/Space";
 import { login } from "./login.service";
-import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [checked, setChecked] = useState(false);
-  const navigate = useNavigate()
 
   async function handleLogin() {
     const user = { username, password };
@@ -20,7 +19,8 @@ function Login() {
     if (res && res.message) {
       alert(res.message);
     } else {
-      navigate('/');
+      localStorage.setItem("USER", JSON.stringify(jwtDecode(res.token)));
+      location.href = "/";
     }
   }
 

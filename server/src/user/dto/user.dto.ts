@@ -1,12 +1,17 @@
-import { IsNumber, IsString, Length } from 'class-validator';
+import { IsArray, IsNumber, IsString, Length } from 'class-validator';
+import { ChatDto } from 'src/chat/dto/chat.dto';
+import { MessageDto } from 'src/chat/dto/message.dto';
 
 export class UserDto {
+  @IsNumber()
+  id?: number;
+
   @IsString()
   username: string;
 
-  @IsString()
-  @Length(8, 54, {
-    message: 'password must be more then 8 and less then 54 characters',
-  })
-  password: string;
+  @IsArray()
+  messages?: MessageDto[];
+
+  @IsArray()
+  chats?: ChatDto[];
 }

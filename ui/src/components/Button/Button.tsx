@@ -3,13 +3,13 @@ import './Button.css'
 
 interface ButtonParams {
   text: string;
-  onClick: React.MouseEventHandler<HTMLDivElement>;
-  size?: "large" | "small" | "medium";
+  onClick: () => void;
+  size?: "large" | "small" | "medium" | 'add';
 }
 
 function Button({ text, onClick, size }: ButtonParams) {
   const defineStyle = useMemo(() => {
-    const result = { width: "150px", padding: '5px 0' };
+    const result = { width: "150px", padding: '5px 0', height:'25px' };
 
     if (size === "medium") {
       result.width = "200px";
@@ -18,6 +18,10 @@ function Button({ text, onClick, size }: ButtonParams) {
 
     if (size === "large") {
       result.width = "100%";
+    }
+    if(size == 'add') {
+      result.width = '20px';
+      result.padding = '3px'
     }
 
     return result;

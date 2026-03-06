@@ -16,6 +16,6 @@ import { UserModule } from 'src/user/user.module';
     }),
     UserModule,
   ],
-  exports: [AuthModule],
+  exports: [AuthModule, JwtModule],
 })
 export class AuthModule {}
